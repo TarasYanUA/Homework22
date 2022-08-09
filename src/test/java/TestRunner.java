@@ -1,9 +1,7 @@
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeGroups;
 import org.testng.annotations.BeforeTest;
-
 import java.time.Duration;
-
 import static utils.Constants.BASIC_URL;
 
 public class TestRunner {
