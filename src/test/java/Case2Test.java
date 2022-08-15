@@ -3,7 +3,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Case2 extends TestRunner {
+public class Case2Test extends TestRunner {
 
     @Test(groups = "Case2")
     public void verifyMainPageIsDisplayed(){

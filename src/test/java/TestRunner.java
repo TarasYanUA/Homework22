@@ -1,3 +1,4 @@
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 
 import java.time.Duration;
@@ -11,7 +12,12 @@ public class TestRunner {
         DriverProvider.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
     }
     @AfterMethod
-    public void afterMethod(){
+    public void afterMethod(ITestResult result){
+        if(! result.isSuccess()){
+            //make screenshot
+
+        }
+
         DriverProvider.getDriver().quit();
         DriverProvider.destroyDriver();
     }

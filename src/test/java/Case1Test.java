@@ -3,7 +3,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Case1 extends TestRunner{
+public class Case1Test extends TestRunner{
 
     @Test
     public void verifyAllRequiredElementsAreDisplayedOnWelcomePage(){
