@@ -1,26 +1,26 @@
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeGroups;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
+
 import java.time.Duration;
 import static utils.Constants.BASIC_URL;
 
 public class TestRunner {
 
-    @BeforeTest
-    public void beforeTest(){
+    @BeforeMethod
+    public void beforeMethod(){
         DriverProvider.getDriver().get(BASIC_URL);
         DriverProvider.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
     }
-    @AfterTest
-    public void afterTest(){
+    @AfterMethod
+    public void afterMethod(){
         DriverProvider.getDriver().quit();
+        DriverProvider.destroyDriver();
     }
 
     @BeforeGroups(groups = {"Case10", "Case9", "Case8"})
     public void stepsForCocktailsPage(){
         WelcomePage welcomePage = new WelcomePage();
         welcomePage.clickCheckbox();
-        welcomePage.selectDropboxValue();
+        welcomePage.selectDropboxValue("eu");
         welcomePage.clickButtonWelcome();
 
         MainPage mainPage = new MainPage();
@@ -37,7 +37,7 @@ public class TestRunner {
     public void stepsForWhereToBuyPage(){
         WelcomePage welcomePage = new WelcomePage();
         welcomePage.clickCheckbox();
-        welcomePage.selectDropboxValue();
+        welcomePage.selectDropboxValue("eu");
         welcomePage.clickButtonWelcome();
     }
 }

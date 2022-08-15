@@ -6,29 +6,23 @@ import org.testng.annotations.Test;
 public class Case1 extends TestRunner{
 
     @Test
-    public void verifyTextForLegalDrinkingAge(){
-        String ageTextActual = "I am of legal drinking age in";
-        Assert.assertEquals(ageTextActual, "I am of legal drinking age in", "There is not such a text!");
-        }
+    public void verifyAllRequiredElementsAreDisplayedOnWelcomePage(){
+        WebElement element = DriverProvider.getDriver().findElement(By.xpath("//label[@for=\"confirm\"]"));
+        String ageTextActual = element.getText();
+        String ageTextExpected = "I am of legal drinking age in";
+        Assert.assertEquals(ageTextActual, ageTextExpected, "There is no a text about age limit!");
 
-    @Test
-    public void verifyForCheckboxPresent(){
-        Assert.assertNotNull(DriverProvider.getDriver().findElement(By.className("confirmation-checkbox")), "There is no checkbox on the page!");
-    }
+        //verifyForCheckboxPresent
+        WebElement checkbox = DriverProvider.getDriver().findElement(By.className("confirmation-checkbox"));
+        Assert.assertTrue(checkbox.isDisplayed());
 
-    @Test
-    public void verifyForDropDownPresent(){
-        //variant 1
-        Assert.assertNotNull(DriverProvider.getDriver().findElement(By.id("agegate-selector-options")), "There is no dropdown on the page");
-        //variant 2
-        WebElement dropDown = DriverProvider.getDriver().findElement(By.id("agegate-selector-options"));
-        dropDown.isDisplayed();
-    }
+        //verifyForDropdownPresent
+        WebElement dropdown = DriverProvider.getDriver().findElement(By.id("agegate-selector-options"));
+        Assert.assertTrue(dropdown.isDisplayed());
 
-    @Test
-    public void verifyWelcomePresentAndDisabled(){
+        //verifyWelcomePresentAndDisabled
         WebElement elementWelcome = DriverProvider.getDriver().findElement(By.xpath("//input[@value=\"Welcome\"]"));
-        elementWelcome.isDisplayed();       //button is present
-        Assert.assertFalse(elementWelcome.isEnabled(), "The button is active");     //button is disabled
+        Assert.assertTrue(elementWelcome.isDisplayed(), "The button is not present on the page!");       //button is present
+        Assert.assertFalse(elementWelcome.isEnabled(), "The button is active!");     //button is disabled
     }
 }

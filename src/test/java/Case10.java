@@ -12,8 +12,8 @@ public class Case10  extends TestRunner {
     public void selectTwoCocktails(){
         CocktailsPage cocktailsPage = new CocktailsPage();
         cocktailsPage.clickFieldOfCocktailType();
-        cocktailsPage.clickRedWineCocktails();          //Select “Red wine cocktails”
-        cocktailsPage.clickSparklingWineCocktails();    //Select "Sparkling wine cocktails"
+        cocktailsPage.clickRedWineCocktails();
+        cocktailsPage.clickSparklingWineCocktails();
     }
 
     @Test(groups = "Case10")
@@ -29,7 +29,7 @@ public class Case10  extends TestRunner {
         List<WebElement> listOfRecipes = DriverProvider.getDriver().findElements(By.xpath("//div[@class='tile recipe-tile']"));
         int actualListSize = listOfRecipes.size();
         int expectedListSize = 20;
-        Assert.assertEquals(actualListSize, expectedListSize, "The number of Recipes is different than 18.");
+        Assert.assertEquals(actualListSize, expectedListSize, "The number of Recipes is different than 20.");
 
     }
 }

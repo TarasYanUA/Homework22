@@ -6,32 +6,29 @@ import org.testng.annotations.Test;
 public class Case3 extends TestRunner{
 
     @Test(groups = "Case3")
-    public void verifyMenuButtonIsDisplayedOnMainPage() {
-        MainPage mainPage = new MainPage();
-        Assert.assertNotNull(mainPage.driver.findElement(By.cssSelector(".fa.fa-bars")), "There is no menu button!");
-    }
+    public void verifyAllRequiredElementsAreDisplayedOnMainPage() {
+        //verifyMenuButtonIsDisplayed
+        WebElement elementWelcome = DriverProvider.getDriver().findElement(By.cssSelector(".fa.fa-bars"));
+        Assert.assertTrue(elementWelcome.isDisplayed(), "There is no menu button!");
 
-   @Test(groups = "Case3")
-    public void verifyWelcomeTextIsDisplayedOnMainPage() {
-        String getWelcomeText = "WELCOME TO THE WORLD OF [Yellow tail]";
-        Assert.assertEquals(getWelcomeText, "WELCOME TO THE WORLD OF [Yellow tail]", "There is no Welcome text!");
-    }
+        //verifyWelcomeTextIsDisplayedOnMainPage
+        String expectedWelcomeText = "WELCOME TO THE WORLD OF";
+        WebElement elementWelcomeText = DriverProvider.getDriver().findElement(By.xpath("//div[contains(@class, 'content animation-screen')]"));
+        String actualWelcomeText = elementWelcomeText.getText();
+        Assert.assertEquals(actualWelcomeText.contains(actualWelcomeText), expectedWelcomeText.contains(expectedWelcomeText), "There is no Welcome text!");
 
-    @Test(groups = "Case3")
-    public void verifyWinesTextIsDisplayedOnMainPage() {
-        String getWinesText = "We are passionate about creating great tasting, quality wines for everyone to enjoy";
-        Assert.assertNotNull(getWinesText.compareToIgnoreCase("We are passionate about creating great tasting, quality wines for everyone to enjoy"), "There is no such a text");
-    }
+        //verifyWinesTextIsDisplayedOnMainPage
+        String expectedWinesText = "We are passionate about creating great tasting, quality wines for everyone to enjoy";
+        WebElement elementWines = DriverProvider.getDriver().findElement(By.xpath("(//p[@class='header-sub-copy'])[1]"));
+        String actualWinesText = elementWines.getText();
+        Assert.assertEquals(actualWinesText.compareToIgnoreCase(actualWinesText), expectedWinesText.compareToIgnoreCase(expectedWinesText), "There is no Wines text");
 
-    @Test(groups = "Case3")
-    public void verifyWineButtonIsDisplayedOnMainPage() {
+        //verifyWineButtonIsDisplayedOnMainPage
         WebElement wineButton = DriverProvider.getDriver().findElement(By.xpath("(//a[@class='button home-button'])[1]"));
-        wineButton.isDisplayed();
-    }
+        Assert.assertTrue(wineButton.isDisplayed());
 
-    @Test(groups = "Case3")
-    public void verifyFooterIsDisplayedOnMainPage() {
+        //verifyFooterIsDisplayedOnMainPage
         WebElement footer = DriverProvider.getDriver().findElement(By.cssSelector("#primary-footer"));
-        footer.isDisplayed();
+        Assert.assertTrue(footer.isDisplayed());
     }
 }

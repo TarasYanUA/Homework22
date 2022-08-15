@@ -20,7 +20,7 @@ public class WhereToBuyPage extends AbstractPage{
         getSearchField().click();
     }
     public String enterPostalCode(String postalCode){
-        getSearchField().sendKeys("Eg. Sydney, NSW 2000");
+        getSearchField().sendKeys(postalCode);
         return postalCode;
     }
 

@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -7,24 +8,19 @@ public class Case7 extends TestRunner {
     public void verifySearchResultsAreDisplayed() {
         WelcomePage welcomePage = new WelcomePage();
         welcomePage.clickCheckbox();
-        welcomePage.selectDropboxValue();
-        welcomePage.clickButtonWelcome();
+        welcomePage.selectDropboxValue("eu");
 
-        MainPage mainPage = new MainPage();
+        MainPage mainPage = welcomePage.clickButtonWelcome();
         mainPage.clickMenuButton();
-        mainPage.clickWhereToBuy();
 
-        String stringForSearch = "Eg. Sydney, NSW 2000";
-        WhereToBuyPage whereToBuyPage = new WhereToBuyPage();
+        WhereToBuyPage whereToBuyPage = mainPage.clickWhereToBuy();
         whereToBuyPage.getSearchField();
         whereToBuyPage.clickSearchField();
-        whereToBuyPage.enterPostalCode(stringForSearch);
+        whereToBuyPage.enterPostalCode("Eg. Sydney, NSW 2000");
         whereToBuyPage.clickSearchSubmitButton();
 
-        //variant 1 - Verify that the results of search are displayed
-        Assert.assertNotNull(DriverProvider.getDriver().findElement(By.className("results")));
-        //variant 2 - Verify that the results of search are displayed
-        String getWinesText = "Stockists in your area";
-        Assert.assertNotNull(getWinesText.compareToIgnoreCase("Stockists in your area"), "There is no such a text");
+        //verify that the results of search are displayed
+        WebElement searchResults = DriverProvider.getDriver().findElement(By.className("results"));
+        Assert.assertTrue(searchResults.isDisplayed());
     }
 }

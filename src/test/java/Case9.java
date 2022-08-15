@@ -3,8 +3,12 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
 
 public class Case9 extends TestRunner{
 
@@ -25,17 +29,19 @@ public class Case9 extends TestRunner{
         actions.moveToElement(element);
         actions.perform();
         element.click();    //Click on “RASPBERRY ROSÉ” recipe
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         //Verify that new page is displayed
         String expectedUrl = "https://www.yellowtailwine.com/recipe/raspberry-rose/";
         String actualUrl = DriverProvider.getDriver().getCurrentUrl();
         Assert.assertTrue(actualUrl.toLowerCase().contains(expectedUrl.toLowerCase()));
-    }
 
-    @Test(groups = "Case9")
-    public void verifyIngredientsSectionIsDisplayed(){
-        WebElement element = DriverProvider.getDriver().findElement(By.xpath("//img[@alt='Raspberry Rose']"));
-        element.click();    //Click on “RASPBERRY ROSÉ” recipe
-        Assert.assertNotNull(DriverProvider.getDriver().findElement(By.className("rhs")));
+        //verifyIngredientsSectionIsDisplayed
+        WebElement block = DriverProvider.getDriver().findElement(By.className("rhs"));
+        Assert.assertTrue(block.isDisplayed());
     }
 }

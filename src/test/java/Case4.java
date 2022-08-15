@@ -9,7 +9,7 @@ public class Case4 extends TestRunner {
     @Test(groups = "Case4")
     public void verifyHeaderWithAllLinks() {
         MainPage mainPage = new MainPage();
-        mainPage.driver.findElement(By.cssSelector(".fa.fa-bars")).click();
+        mainPage.clickMenuButton();
 
         //Verify that header with all needed links is appeared
         List<WebElement> listOfHeaderItems = DriverProvider.getDriver().findElements(By.xpath("//div[@class='main-nav']//li[@class='link']"));
