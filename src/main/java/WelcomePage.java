@@ -1,3 +1,4 @@
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -30,32 +31,40 @@ public class WelcomePage extends AbstractPage{
         super();
         }
 
+    @Step
     public void clickCheckbox(){
         itemCheckbox.click();
         }
 
+    @Step
     public Select getDropboxValue(){
         return new Select(dropboxValue);
     }
+    @Step
     public String selectDropboxValue(String value) {
         getDropboxValue().selectByValue(value);
         return value;
     }
 
+    @Step
     public MainPage navigateToMainPage(){
         buttonWelcome.click();
         return new MainPage();
         }
 
+    @Step
     public WebElement getAgeText(){
         return ageText;
     }
+    @Step
     public WebElement getConfirmationCheckbox(){
         return confirmationCheckbox;
     }
+    @Step
     public WebElement getDropdownSelector(){
         return dropdownSelector;
     }
+    @Step
     public WebElement getWelcomeButton(){
         return welcomeButton;
     }

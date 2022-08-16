@@ -1,3 +1,4 @@
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -16,18 +17,22 @@ public class WhereToBuyPage extends AbstractPage{
         super();
     }
 
+    @Step
     public void clickSearchField(){
         searchField.click();
     }
+    @Step
     public String enterPostalCode(String postalCode){
         searchField.sendKeys(postalCode);
         return postalCode;
     }
 
+    @Step
     public void clickSearchSubmitButton(){
         searchSubmitButton.click();
     }
 
+    @Step
     public WebElement getSearchResults(){
         return searchResults;
     }

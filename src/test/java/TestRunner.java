@@ -1,9 +1,9 @@
 import io.qameta.allure.Attachment;
+import io.qameta.allure.Step;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
-
 import java.time.Duration;
 import static utils.Constants.BASIC_URL;
 
@@ -30,6 +30,7 @@ public class TestRunner {
         return ((TakesScreenshot) DriverProvider.getDriver()).getScreenshotAs(OutputType.BYTES);
     }
 
+    @Step("Navigate to Cocktails page")
     public void stepsToNavigateToCocktailsPage(){
         WelcomePage welcomePage = new WelcomePage();
         welcomePage.clickCheckbox();
@@ -46,6 +47,7 @@ public class TestRunner {
         mainPage.navigateToCocktailsPage();
     }
 
+    @Step("Navigate to Main page as European")
     public void stepsToNavigateToMainPage() {
         WelcomePage welcomePage = new WelcomePage();
         welcomePage.clickCheckbox();

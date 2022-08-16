@@ -1,3 +1,4 @@
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -33,34 +34,42 @@ public class CocktailsPage extends AbstractPage{
         super();
     }
 
+    @Step
     public void clickFieldOfCocktailType(){
         fieldOfCocktailType.click();
     }
 
+    @Step
     public void clickRedWineCocktails(){
         redWineCocktails.click();
     }
 
+    @Step
     public void clickSparklingWineCocktails(){
         sparklingWineCocktails.click();
     }
 
+    @Step
     public WebElement getMultipleText(){
         return multipleText;
     }
 
+    @Step
     public List<WebElement> getListOfRecipes(){
         return listOfRecipes;
     }
 
+    @Step
     public List<WebElement> getListOfRedWines(){
         return listOfRedWines;
     }
 
+    @Step
     public WebElement getRaspberryRose(){
         return raspberryRose;
     }
 
+    @Step
     public WebElement getBlock(){
         return block;
     }

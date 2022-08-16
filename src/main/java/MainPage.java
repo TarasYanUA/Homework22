@@ -1,3 +1,4 @@
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -63,31 +64,38 @@ public class MainPage extends AbstractPage{
         return new WhereToBuyPage();
     }
 
+    @Step
     public CocktailsPage navigateToCocktailsPage(){
         cocktailsPage.click();
         return new CocktailsPage();
     }
 
+    @Step
     public List<WebElement> getListOfHeaderItems(){
         return listOfHeaderItems;
     }
 
+    @Step
     public void clickMainLogo(){
         mainLogo.click();
     }
 
+    @Step
     public WebElement getWelcomeText(){
         return welcomeText;
     }
 
+    @Step
     public WebElement getWinesText(){
         return winesText;
     }
 
+    @Step
     public WebElement getWineButton(){
         return wineButton;
     }
 
+    @Step
     public WebElement getFooter(){
         return footer;
     }
