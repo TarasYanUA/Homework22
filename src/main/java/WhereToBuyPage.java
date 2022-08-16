@@ -13,22 +13,16 @@ public class WhereToBuyPage extends AbstractPage{
         super();
     }
 
-    public WebElement getSearchField(){
-        return searchField;
-    }
     public void clickSearchField(){
-        getSearchField().click();
+        searchField.click();
     }
     public String enterPostalCode(String postalCode){
-        getSearchField().sendKeys(postalCode);
+        searchField.sendKeys(postalCode);
         return postalCode;
     }
 
-    public WebElement getSearchSubmitButton(){
-        return searchSubmitButton;
-    }
     public void clickSearchSubmitButton(){
-        getSearchSubmitButton().click();
+        searchSubmitButton.click();
     }
 
 }

@@ -1,7 +1,6 @@
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
@@ -22,8 +21,8 @@ public class TestRunner {
             saveScreenshot();
         }
 
-        DriverProvider.getDriver().quit();
-        DriverProvider.destroyDriver();
+        //DriverProvider.getDriver().quit();
+        //DriverProvider.destroyDriver();
     }
 
     @Attachment (value = "Page screen", type = "image/png")
@@ -36,7 +35,7 @@ public class TestRunner {
         WelcomePage welcomePage = new WelcomePage();
         welcomePage.clickCheckbox();
         welcomePage.selectDropboxValue("eu");
-        welcomePage.clickButtonWelcome();
+        welcomePage.navigateToMainPage();
 
         MainPage mainPage = new MainPage();
         mainPage.clickMenuButton();
@@ -45,14 +44,14 @@ public class TestRunner {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        mainPage.clickCocktailsPage();
+        mainPage.navigateToCocktailsPage();
     }
 
-    @BeforeGroups(groups = {"Case6", "Case5", "Case4", "Case3", "Case2"})
+    @BeforeGroups(groups = {"Case6", "Case5", "Case4", "Case3"})
     public void stepsForWhereToBuyPage(){
         WelcomePage welcomePage = new WelcomePage();
         welcomePage.clickCheckbox();
         welcomePage.selectDropboxValue("eu");
-        welcomePage.clickButtonWelcome();
+        welcomePage.navigateToMainPage();
     }
 }

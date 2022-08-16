@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class WhereToBuy_EnterValidAddressTest extends TestRunner {
+public class WhereToBuyPage_EnterValidAddressTest extends TestRunner {
 
     @Severity(SeverityLevel.CRITICAL)
     @Description("Verify that the results of search are displayed")
@@ -18,10 +18,10 @@ public class WhereToBuy_EnterValidAddressTest extends TestRunner {
         welcomePage.clickCheckbox();
         welcomePage.selectDropboxValue("eu");
 
-        MainPage mainPage = welcomePage.clickButtonWelcome();
+        MainPage mainPage = welcomePage.navigateToMainPage();
         mainPage.clickMenuButton();
 
-        WhereToBuyPage whereToBuyPage = mainPage.clickWhereToBuy();
+        WhereToBuyPage whereToBuyPage = mainPage.navigateToWhereToBuyPage();
         whereToBuyPage.getSearchField();
         whereToBuyPage.clickSearchField();
         whereToBuyPage.enterPostalCode("Eg. Sydney, NSW 2000");

@@ -16,25 +16,15 @@ public class CocktailsPage extends AbstractPage{
         super();
     }
 
-    public WebElement getFieldOfCocktailType(){
-        return fieldOfCocktailType;
-    }
     public void clickFieldOfCocktailType(){
-        getFieldOfCocktailType().click();
+        fieldOfCocktailType.click();
     }
 
-    public WebElement getRedWineCocktails(){
-        return redWineCocktails;
-    }
     public void clickRedWineCocktails(){
-        getRedWineCocktails().click();
+        redWineCocktails.click();
     }
 
-    public WebElement getSparklingWineCocktails(){
-        return sparklingWineCocktails;
-    }
     public void clickSparklingWineCocktails(){
-        getSparklingWineCocktails().click();
+        sparklingWineCocktails.click();
     }
-
 }

@@ -11,33 +11,27 @@ public class WelcomePage extends AbstractPage{
     private WebElement buttonWelcome;
 
     @FindBy(id = "agegate-selector-options")
-    private WebElement getDropboxValue;
+    private WebElement dropboxValue;
 
 
     public WelcomePage(){
         super();
         }
 
-    public WebElement getItemCheckbox() {
-        return itemCheckbox;
-        }
     public void clickCheckbox(){
-        getItemCheckbox().click();
+        itemCheckbox.click();
         }
 
     public Select getDropboxValue(){
-        return new Select(getDropboxValue);
+        return new Select(dropboxValue);
     }
     public String selectDropboxValue(String value) {
         getDropboxValue().selectByValue(value);
         return value;
     }
 
-    public WebElement getButtonWelcome(){
-        return buttonWelcome;
-        }
-    public MainPage clickButtonWelcome(){
-        getButtonWelcome().click();
+    public MainPage navigateToMainPage(){
+        buttonWelcome.click();
         return new MainPage();
         }
 }

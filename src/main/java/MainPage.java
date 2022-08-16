@@ -23,40 +23,28 @@ public class MainPage extends AbstractPage{
        super();
     }
 
-    public WebElement getMenuButton() {
+    public WebElement getMenuButton(){  //нужен для Case2, Case5
         return menuButton;
     }
     public void clickMenuButton(){
         getMenuButton().click();
     }
 
-    public WebElement getGlobeIcon(){
-        return globeIcon;
-    }
     public void clickGlobeIcon(){
-        getGlobeIcon().click();
+        globeIcon.click();
     }
 
-    public WebElement getLanguageSelection(){
-        return languageSelection;
-    }
     public void clickLanguageSelection(){
-        getLanguageSelection().click();
+        languageSelection.click();
     }
 
-    public WebElement getWhereToBuy(){
-        return whereToBuy;
-    }
-    public WhereToBuyPage clickWhereToBuy(){
-        getWhereToBuy().click();
+    public WhereToBuyPage navigateToWhereToBuyPage(){
+        whereToBuy.click();
         return new WhereToBuyPage();
     }
 
-    public WebElement getCocktailsPage(){
-        return cocktailsPage;
-    }
-    public CocktailsPage clickCocktailsPage(){
-        getCocktailsPage().click();
+    public CocktailsPage navigateToCocktailsPage(){
+        cocktailsPage.click();
         return new CocktailsPage();
     }
 }
