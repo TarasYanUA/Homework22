@@ -21,8 +21,8 @@ public class TestRunner {
             saveScreenshot();
         }
 
-        //DriverProvider.getDriver().quit();
-        //DriverProvider.destroyDriver();
+        DriverProvider.getDriver().quit();
+        DriverProvider.destroyDriver();
     }
 
     @Attachment (value = "Page screen", type = "image/png")
@@ -30,8 +30,7 @@ public class TestRunner {
         return ((TakesScreenshot) DriverProvider.getDriver()).getScreenshotAs(OutputType.BYTES);
     }
 
-    @BeforeGroups(groups = {"Case10", "Case9", "Case8"})
-    public void stepsForCocktailsPage(){
+    public void stepsToNavigateToCocktailsPage(){
         WelcomePage welcomePage = new WelcomePage();
         welcomePage.clickCheckbox();
         welcomePage.selectDropboxValue("eu");
@@ -47,8 +46,7 @@ public class TestRunner {
         mainPage.navigateToCocktailsPage();
     }
 
-    @BeforeGroups(groups = {"Case6", "Case5", "Case4", "Case3"})
-    public void stepsForWhereToBuyPage(){
+    public void stepsToNavigateToMainPage() {
         WelcomePage welcomePage = new WelcomePage();
         welcomePage.clickCheckbox();
         welcomePage.selectDropboxValue("eu");

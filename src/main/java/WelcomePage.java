@@ -13,6 +13,18 @@ public class WelcomePage extends AbstractPage{
     @FindBy(id = "agegate-selector-options")
     private WebElement dropboxValue;
 
+    @FindBy(xpath = "//label[@for='confirm']")
+    private WebElement ageText;
+
+    @FindBy(className = "confirmation-checkbox")
+    private WebElement confirmationCheckbox;
+
+    @FindBy(id = "agegate-selector-options")
+    private WebElement dropdownSelector;
+
+    @FindBy(xpath = "//input[@value=\"Welcome\"]")
+    private WebElement welcomeButton;
+
 
     public WelcomePage(){
         super();
@@ -34,4 +46,17 @@ public class WelcomePage extends AbstractPage{
         buttonWelcome.click();
         return new MainPage();
         }
+
+    public WebElement getAgeText(){
+        return ageText;
+    }
+    public WebElement getConfirmationCheckbox(){
+        return confirmationCheckbox;
+    }
+    public WebElement getDropdownSelector(){
+        return dropdownSelector;
+    }
+    public WebElement getWelcomeButton(){
+        return welcomeButton;
+    }
 }

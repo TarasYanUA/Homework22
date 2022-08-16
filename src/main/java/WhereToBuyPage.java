@@ -9,6 +9,9 @@ public class WhereToBuyPage extends AbstractPage{
     @FindBy(css = ".search-submit")
     private WebElement searchSubmitButton;
 
+    @FindBy(className = "results")
+    private WebElement searchResults;
+
     public WhereToBuyPage(){
         super();
     }
@@ -25,4 +28,7 @@ public class WhereToBuyPage extends AbstractPage{
         searchSubmitButton.click();
     }
 
+    public WebElement getSearchResults(){
+        return searchResults;
+    }
 }

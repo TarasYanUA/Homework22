@@ -5,36 +5,29 @@ import io.qameta.allure.Story;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import java.time.Duration;
 
 public class CocktailsPage_NavigateToCocktailRecipeTest extends TestRunner{
 
     @Severity(SeverityLevel.NORMAL)
     @Description("Select RASPBERRY ROSÉ and verify that new page is displayed and ingredients section is displayed")
     @Story("Case9")
-    @Test(groups = "Case9")
+    @Test
     public void verifyNewPageIsDisplayed(){
-        //variant 1 - Scroll to “RASPBERRY ROSÉ” recipe
-/*        WebElement element = DriverProvider.getDriver().findElement(By.xpath("//img[@alt='Raspberry Rose']"));
-        ((JavascriptExecutor) DriverProvider.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
+        stepsToNavigateToCocktailsPage();
+        CocktailsPage cocktailsPage = new CocktailsPage();
+        cocktailsPage.getRaspberryRose();
 
-        //variant 2 - Scroll to “RASPBERRY ROSÉ” recipe
-        WebElement element = DriverProvider.getDriver().findElement(By.xpath("//img[@alt='Raspberry Rose']"));
+        WebElement element = cocktailsPage.getRaspberryRose();
         Actions actions = new Actions(DriverProvider.getDriver());
         actions.moveToElement(element);
         actions.perform();
         element.click();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        (new WebDriverWait((cocktailsPage.driver), Duration.ofSeconds(2))).until(ExpectedConditions.elementToBeClickable(By.className("recipe-title")));
 
         //Verify that new page is displayed
         String expectedUrl = "https://www.yellowtailwine.com/recipe/raspberry-rose/";
@@ -42,7 +35,7 @@ public class CocktailsPage_NavigateToCocktailRecipeTest extends TestRunner{
         Assert.assertTrue(actualUrl.toLowerCase().contains(expectedUrl.toLowerCase()));
 
         //verifyIngredientsSectionIsDisplayed
-        WebElement block = DriverProvider.getDriver().findElement(By.className("rhs"));
-        Assert.assertTrue(block.isDisplayed());
+        (new WebDriverWait((cocktailsPage.driver), Duration.ofSeconds(2))).until(ExpectedConditions.elementToBeClickable(By.className("rhs")));
+        Assert.assertTrue(cocktailsPage.getBlock().isDisplayed());
     }
 }

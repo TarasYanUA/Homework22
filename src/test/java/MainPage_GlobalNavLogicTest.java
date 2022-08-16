@@ -15,8 +15,10 @@ public class MainPage_GlobalNavLogicTest extends TestRunner {
     @Severity(SeverityLevel.CRITICAL)
     @Description("Select USA in popup and click on it. Verify that url has changed")
     @Story("Case6")
-    @Test(groups = "Case6")
+    @Test
     public void verifyUrlHasChanged() {
+        stepsToNavigateToMainPage();
+
         MainPage mainPage = new MainPage();
         mainPage.clickMenuButton();
         mainPage.clickGlobeIcon();
