@@ -1,14 +1,20 @@
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.time.Duration;
 
-public class Case6 extends TestRunner {
+public class MainPage_GlobalNavLogicTest extends TestRunner {
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Select USA in popup and click on it. Verify that url has changed")
+    @Story("Case6")
     @Test(groups = "Case6")
     public void verifyUrlHasChanged() {
         MainPage mainPage = new MainPage();

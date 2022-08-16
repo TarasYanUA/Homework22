@@ -2,6 +2,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class CocktailsPage extends AbstractPage{
+
     @FindBy(className = "dropdown")
     private WebElement fieldOfCocktailType;
 
@@ -11,6 +12,9 @@ public class CocktailsPage extends AbstractPage{
     @FindBy(xpath = "//a[contains(text(), 'Sparkling wine cocktails')]")
     private WebElement sparklingWineCocktails;
 
+    public CocktailsPage(){
+        super();
+    }
 
     public WebElement getFieldOfCocktailType(){
         return fieldOfCocktailType;

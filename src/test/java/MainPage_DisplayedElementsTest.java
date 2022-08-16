@@ -1,10 +1,17 @@
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Case3 extends TestRunner{
+public class MainPage_DisplayedElementsTest extends TestRunner{
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Verify all required elements are displayed")
+    @Story("Case3")
     @Test(groups = "Case3")
     public void verifyAllRequiredElementsAreDisplayedOnMainPage() {
         //verifyMenuButtonIsDisplayed

@@ -32,16 +32,6 @@ public class WelcomePage extends AbstractPage{
         getDropboxValue().selectByValue(value);
         return value;
     }
-/*    public void selectDropboxValue() {
-        getDropboxValue().selectByValue("eu");
-    }*/
-    //вариант 2 - оставил себе на память
-/*    public Select getDropboxValue(){
-        return new Select(DriverProvider.getDriver().findElement(By.id("agegate-selector-options")));
-    }
-    public void selectDropboxValue(){
-        getDropboxValue().selectByValue("eu");
-    }*/
 
     public WebElement getButtonWelcome(){
         return buttonWelcome;

@@ -1,16 +1,23 @@
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Case1Test extends TestRunner{
+public class WelcomePage_DisplayedElementsTest extends TestRunner{
 
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Verify all required elements are displayed")
+    @Story("Case1")
     @Test
     public void verifyAllRequiredElementsAreDisplayedOnWelcomePage(){
         WebElement element = DriverProvider.getDriver().findElement(By.xpath("//label[@for=\"confirm\"]"));
         String ageTextActual = element.getText();
         String ageTextExpected = "I am of legal drinking age in";
-        Assert.assertEquals(ageTextActual, ageTextExpected, "There is no a text about age limit!");
+        Assert.assertEquals(ageTextActual, ageTextExpected, "There is no text about age limit!");
 
         //verifyForCheckboxPresent
         WebElement checkbox = DriverProvider.getDriver().findElement(By.className("confirmation-checkbox"));

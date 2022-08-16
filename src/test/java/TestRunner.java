@@ -1,3 +1,7 @@
+import io.qameta.allure.Attachment;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
@@ -15,11 +19,16 @@ public class TestRunner {
     public void afterMethod(ITestResult result){
         if(! result.isSuccess()){
             //make screenshot
-
+            saveScreenshot();
         }
 
         DriverProvider.getDriver().quit();
         DriverProvider.destroyDriver();
+    }
+
+    @Attachment (value = "Page screen", type = "image/png")
+    public byte [] saveScreenshot (){
+        return ((TakesScreenshot) DriverProvider.getDriver()).getScreenshotAs(OutputType.BYTES);
     }
 
     @BeforeGroups(groups = {"Case10", "Case9", "Case8"})

@@ -1,11 +1,18 @@
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.util.List;
 
-public class Case8 extends TestRunner{
+public class CocktailsPage_RecipesAreDisplayedTest extends TestRunner{
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Verify that 9 recipes are displayed")
+    @Story("Case8")
     @Test(groups = "Case8")
     public void verifyNumberOfDisplayedRecipesOfRedWine() {
         CocktailsPage cocktailsPage = new CocktailsPage();

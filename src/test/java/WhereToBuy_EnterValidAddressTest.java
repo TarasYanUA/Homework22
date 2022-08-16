@@ -1,9 +1,17 @@
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Case7 extends TestRunner {
+public class WhereToBuy_EnterValidAddressTest extends TestRunner {
+
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Verify that the results of search are displayed")
+    @Story("Case7")
     @Test
     public void verifySearchResultsAreDisplayed() {
         WelcomePage welcomePage = new WelcomePage();
