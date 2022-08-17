@@ -3,7 +3,6 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -23,8 +22,8 @@ public class MainPage_GlobalNavLogicTest extends TestRunner {
         mainPage.clickMenuButton();
         mainPage.clickGlobeIcon();
 
-        WebElement languageSelection = (new WebDriverWait((mainPage.driver), Duration.ofSeconds(2))).until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@data-key='US']")));
-        languageSelection.click();
+        (new WebDriverWait((mainPage.driver), Duration.ofSeconds(2))).until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@data-key='US']")));
+        mainPage.clickLanguageSelection();
 
         //Verify that url has changed
         String expectedUrl = "https://www.yellowtailwine.com/us/";
